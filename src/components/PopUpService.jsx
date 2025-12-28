@@ -10,16 +10,10 @@ export default function PopUpService({
 
   const total = servicioSeleccionado.multimedia.length;
 
-  // Funcion para ir a la imagen anterior
+  // fncion para ir a la imagen anterior
   const prev = () => setIndice((prev) => (prev - 1 + total) % total);
-  // Funcion para ir a la imagen siguiente
+  // funcion para ir a la imagen siguiente
   const next = () => setIndice((prev) => (prev + 1) % total);
-
-  // Scroll automático cada 3 segundos (opcional)
-  //   useEffect(() => {
-  //     const intervalo = setInterval(next, 3000);
-  //     return () => clearInterval(intervalo);
-  //   }, [total]);
 
   const numeroWhatsapp = "573117350824";
   const mensajeWhatsapp = "¡Hola! Estoy interesado en tu servicio.";
@@ -39,7 +33,7 @@ export default function PopUpService({
 
 
           <div className="absolute inset-0 bg-gray-900/90 bg-opacity-50 flex flex-col justify-center items-center text-center px-4">
-            {/* Botón de cerrar */}
+            {/* boton de cerrar */}
             <button
               onClick={() => setServicioSeleccionado(null)}
               className="fixed top-5 right-5 text-amber-600 bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded-full font-bold"

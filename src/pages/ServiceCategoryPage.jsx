@@ -4,7 +4,7 @@ import { BiArrowToRight } from "react-icons/bi";
 import Footer from "../components/footer";
 import React, { useState } from "react";
 import { useLoadService } from "../hooks/useLoadServices";
-import PopUpService from "../components/popUpService";
+import PopUpService from "../components/PopUpService";
 import { FiBox, FiTool } from "react-icons/fi";
 
 export default function ServiceCategoryPage() {
@@ -32,7 +32,7 @@ export default function ServiceCategoryPage() {
     return <p>No existe esta categoría.</p>;
   }
 
-  // Filtrrar servicios por categoria_ID
+  // filtrrar servicios por categoria_ID
   const filteredService = servicioRenova
     ? servicioRenova.filter(
         (prod) => prod.categoria_ID === category.categoria_ID
