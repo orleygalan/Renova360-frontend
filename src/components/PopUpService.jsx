@@ -1,19 +1,9 @@
-import React, { useEffect, useState } from "react";
 import Footer from "./footer";
 
 export default function PopUpService({
   setServicioSeleccionado,
   servicioSeleccionado,
 }) {
-  const [indice, setIndice] = useState(0);
-  const [openPreview, setOpenPreview] = useState(false);
-
-  const total = servicioSeleccionado.multimedia.length;
-
-  // fncion para ir a la imagen anterior
-  const prev = () => setIndice((prev) => (prev - 1 + total) % total);
-  // funcion para ir a la imagen siguiente
-  const next = () => setIndice((prev) => (prev + 1) % total);
 
   const numeroWhatsapp = "573117350824";
   const mensajeWhatsapp = "¡Hola! Estoy interesado en tu servicio.";
@@ -132,72 +122,6 @@ export default function PopUpService({
             </a>
           </div>
         </section>
-
-        {/* GALERÍA */}
-        <div className="w-full py-10 bg-white">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">
-            Galería
-          </h2>
-
-          {/* Carrusel */}
-          <div className="relative w-full max-w-5xl mx-auto px-4">
-            <div
-              className="flex gap-6 overflow-x-auto px-4 pb-4 scroll-smooth"
-              style={{
-                scrollbarWidth: "none",
-                transform: `translateX(-${indice * 100}%)`,
-              }}
-            >
-              {servicioSeleccionado.multimedia.map((item, i) => (
-                <div
-                  key={i}
-                  className="rounded-xl shadow-lg cursor-pointer 
-                    transition"
-                  onClick={() => {
-                    setIndice(i);
-                    setOpenPreview(true);
-                  }}
-                >
-                  <img
-                    src={item.multimedia}
-                    alt={`Galería ${i}`}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              ))}
-            </div>
-
-            {/* Botón Anterior */}
-            <button
-              onClick={prev}
-              className="absolute top-1/2 -translate-y-1/2 left-3 bg-white/80 hover:bg-white text-gray-800 p-3 rounded-full shadow-lg"
-            >
-              &#8592;
-            </button>
-
-            {/* Botón Siguiente */}
-            <button
-              onClick={next}
-              className="absolute top-1/2 -translate-y-1/2 right-3 bg-white/80 hover:bg-white text-gray-800 p-3 rounded-full shadow-lg"
-            >
-              &#8594;
-            </button>
-          </div>
-
-          {/* PREVIEE */}
-          {openPreview && (
-            <div
-              className="fixed inset-0 bg-black/90 flex items-center justify-center z-50"
-              onClick={() => setOpenPreview(false)}
-            >
-              <img
-                src={servicioSeleccionado.multimedia[indice].multimedia}
-                alt="Preview"
-                className="max-w-[95vw] max-h-[90vh] object-contain"
-              />
-            </div>
-          )}
-        </div>
 
         {/* Footer */}
         <Footer />
