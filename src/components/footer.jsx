@@ -2,7 +2,7 @@ import { FaEnvelope, FaFacebookF, FaInstagram, FaMapMarkerAlt, FaPhoneAlt, FaTik
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-300 mt-20 w-full">
+    <footer className="bg-gray-900 text-gray-300 w-full bg-gradient-to-b from-[#0b132b] to-[#020617]">
       <div className="max-w-7xl mx-auto px-6 py-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
         
         

@@ -66,9 +66,9 @@ export default function ProductCategoryPage() {
   };
 
   return (
-    <div className="bg-[white] h-screen ">
+    <div className="bg-[white] w-full min-h-[100dvh] grid grid-rows-[1fr_auto] ">
       {filteredProducts.length === 0 && (
-        <div className="absolute inset-0 flex items-center justify-center">
+        <div className="flex items-center justify-center h-screen ">
           <div className="flex flex-col items-center text-center bg-[#D9D9D9] backdrop-blur-md px-8 py-10 rounded-2xl border border-white/10 shadow-xl">
             <FiBox className="text-5xl text-black mb-4" />
 
@@ -83,42 +83,48 @@ export default function ProductCategoryPage() {
         </div>
       )}
 
-      <main className="contenedorProducto bg-[white] pt-[20vh] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-5 py-10 h-screen ">
-        {filteredProducts.map((p) => (
-          <div
-            key={p.producto_ID}
-            className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-transform hover:-translate-y-1 duration-300 overflow-hidden border border-gray-100 h-full"
-          >
-            <div className="h-56 w-full overflow-hidden">
-              <img
-                src={p.imagenes[0]}
-                alt={p.nombre}
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-              />
-            </div>
+      <main className="flex justify-center px-6 py-10 bg-white">
+        <div className="w-full max-w-7xl">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 pt-[8vh] md:pt-[10vh] ">
+            {filteredProducts.map((p) => (
+              <div
+                key={p.producto_ID}
+                className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-transform hover:-translate-y-1 duration-300 overflow-hidden border border-gray-100 h-full"
+              >
+                <div className="h-56 w-full overflow-hidden">
+                  <img
+                    src={p.imagenes[0]}
+                    alt={p.nombre}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
 
-            <div className="p-5">
-              <h2 className="text-xl font-semibold text-gray-800 mb-2">
-                {p.nombre}
-              </h2>
+                <div className="p-5">
+                  <h2 className="text-xl font-semibold text-gray-800 mb-2">
+                    {p.nombre}
+                  </h2>
 
-              <p className="text-gray-600 text-sm mb-3 line-clamp-2 ">
-                {p.descripcion}
-              </p>
+                  <p className="text-gray-600 text-sm mb-3 line-clamp-2 ">
+                    {p.descripcion}
+                  </p>
 
-              <div className="flex justify-between items-center">
-                <p className="text-lg font-bold text-blue-600">${p.precio}</p>
-                <button
-                  onClick={() => setProductoSeleccionado(p)}
-                  style={{ background: "blue" }}
-                  className="text-[#ffffff] "
-                >
-                  <BiArrowToRight />
-                </button>
+                  <div className="flex justify-between items-center">
+                    <p className="text-lg font-bold text-blue-600">
+                      ${p.precio}
+                    </p>
+                    <button
+                      onClick={() => setProductoSeleccionado(p)}
+                      style={{ background: "blue" }}
+                      className="text-[#ffffff] "
+                    >
+                      <BiArrowToRight />
+                    </button>
+                  </div>
+                </div>
               </div>
-            </div>
+            ))}
           </div>
-        ))}
+        </div>
         {productoSeleccionado ? (
           <div className="fixed top-0 left-0 w-full h-full bg-white z-3">
             <div className="overflow-y-auto w-full h-screen ">
@@ -351,22 +357,22 @@ export default function ProductCategoryPage() {
                       >
                         Comprar
                       </button>
-                      <button
+                      {/* <button
                         style={{ background: "white", borderColor: "blue" }}
                         className="px-6 py-3 text-[blue] rounded-lg"
                       >
                         Agregar al carrito
-                      </button>
+                      </button> */}
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="max-w-6xl mx-auto px-5">
+              {/* <div className="max-w-6xl mx-auto px-5">
                 <h2 className="text-xl font-semibold mb-4">
                   Cosas que te podrian interesar
                 </h2>
-              </div>
+              </div> */}
               {/* <div className="p-7">
                 <h2 className="text-2xl font-bold mb-5 text-gray-800">
                   Lo mejor y lo versatil en un solo lugar

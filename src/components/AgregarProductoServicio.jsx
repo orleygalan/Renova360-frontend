@@ -33,7 +33,7 @@ export default function AgregarProductoServicio({
   const [imagenProducto, setImagenProducto] = useState([]);
   const [imagenService, setImagenService] = useState("");
   const [loading, setLoading] = useState(false);
-  const [nombreService, setNombreService] = useState("")
+  const [nombreService, setNombreService] = useState("");
 
   console.log(categoria_ID);
   console.log(descripcionServicio);
@@ -125,7 +125,7 @@ export default function AgregarProductoServicio({
     const data = {
       categoria_ID: categoria_ID,
       descripcion_nombre: descripcionServicio,
-      nombre_empresa: nombreService
+      nombre_empresa: nombreService,
     };
 
     formDataService.append("dataService", JSON.stringify(data));
@@ -161,7 +161,8 @@ export default function AgregarProductoServicio({
       .catch((err) => console.error("Error:", err));
   };
 
-  const isDiseabledService = !descripcionServicio || !nombreService || !imagenService;
+  const isDiseabledService =
+    !descripcionServicio || !nombreService || !imagenService;
 
   const btnActive = {
     backgroundColor: "#ffffff",
@@ -198,13 +199,20 @@ export default function AgregarProductoServicio({
 
       {toggleAgregarProductService ? (
         <div className="contenedorGeneral fixed top-0 left-0 inset-0 bg-black/60 backdrop-blur-sm z-3 flex flex-col items-center justify-center h-screen ">
-          <div className="bg-[#000353] w-[90%] max-w-md rounded-xl p-6 shadow-xl relative h-[95vh] overflow-y-auto ">
-            <button
-              style={{ background: "transparent" }}
-              onClick={handleProductService}
-            >
-              X
-            </button>
+          <div className="bg-[#000353] w-[90%] max-w-md rounded-xl p-6 shadow-xl relative h-[85vh] overflow-y-auto ">
+            <div className="flex justify-center items-center relative w-full pb-5">
+              <h3 className="text-center font-semibold whitespace-nowrap text-xl ">
+                Agregar Producto/Serv..
+              </h3>
+              <button
+                style={{ background: "transparent" }}
+                onClick={handleProductService}
+                className="absolute -right-5"
+              >
+                X
+              </button>
+            </div>
+            <hr className="pb-5 " />
 
             <div>
               <div className="mb-5">

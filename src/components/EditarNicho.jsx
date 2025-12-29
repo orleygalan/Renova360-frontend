@@ -125,12 +125,12 @@ export default function EditarNicho({
             </h2>
 
             {menuOpciones && (
-              <div className="max-w-sm w-[60%] bg-white absolute top-7 left-4 rounded-md py-3 px-2 ">
+              <div className="bg-white absolute top-7 left-4 rounded-md py-3 px-2 ">
                 <a
                   onClick={() => setEditarNichoPadre(!editarNichoPadre)}
                   href="#"
                   style={{ color: "white" }}
-                  className="bg-[#0A0042] px-5 py-2 rounded-md "
+                  className="bg-[#0A0042] px-5 py-2 rounded-md whitespace-nowrap "
                 >
                   Editar Nicho padre
                 </a>
@@ -139,6 +139,7 @@ export default function EditarNicho({
           </div>
           <button
             onClick={(e) => handleUpdatedCategoria(e)}
+            style={{background: 'transparent'}}
             className="p-2 rounded-full hover:bg-gray-100 transition"
           >
             <FaTimes className="text-xl text-white" />
