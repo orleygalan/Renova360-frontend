@@ -79,7 +79,7 @@ export const RegisterLogin = () => {
 
   return (
     <>
-      <div className="principal min-h-screen w-full flex flex-col justify-center items-center bg-white px-4 py-6 z-3">
+      <div className="principal min-h-screen w-full flex flex-col justify-center items-center bg-white px-4 py-6 z-3 absolute top-0">
         <div className="secundario w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-[40vw] pt-10 pb-8 px-10 bg-white rounded-md text-black shadow-2xl">
           <div className="w-full text-center flex flex-col items-center text-black ">
             <FaLock />
