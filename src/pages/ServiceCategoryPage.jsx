@@ -28,9 +28,9 @@ export default function ServiceCategoryPage() {
     }
   }, [servicioSeleccionado]);
 
-  if (!category) {
-    return <p>No existe esta categoría.</p>;
-  }
+  // if (!category) {
+  //   return <p>No existe esta categoría.</p>;
+  // }
 
   // filtrrar servicios por categoria_ID
   const filteredService = servicioRenova
@@ -60,7 +60,7 @@ export default function ServiceCategoryPage() {
 
       <main className="flex justify-center px-6 py-10 bg-white">
         <div className="w-full max-w-7xl">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 pt-[8vh] md:pt-[10vh] ">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 pt-0 ">
             {filteredService.map((p) => (
               <div
                 key={p.servicio_ID}

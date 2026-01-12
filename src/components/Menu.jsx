@@ -8,7 +8,7 @@ import { useAuth } from "../context/AuthContext";
 import LogoutPopup from "./LogoutPopup";
 
 export default function Menu() {
-  const { productCategories, serviceCategories, loading, error } =
+  const { productCategories, serviceCategories, loading } =
     useLoadCategories();
 
   const [openProducts, setOpenProducts] = useState(false);

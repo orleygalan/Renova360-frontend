@@ -4,8 +4,8 @@ import Footer from "../components/footer";
 export default function AboutUs() {
   return (
     <>
-      <main className="w-full min-h-screen pt-[12vh] from-white to-gray-100">
-        <section className="relative w-full h-[55vh] flex justify-center items-center">
+      <main className="w-full min-h-screen pt-0 from-white to-gray-100">
+        <section className="relative w-full h-[55vh] [@media(min-height:900px)]:h-[40vh] flex justify-center items-center">
           <img
             src="https://images.unsplash.com/photo-1522199710521-72d69614c702"
             alt="Sobre Nosotros"

@@ -11,8 +11,8 @@ export default function Homen() {
 
   return (
     <>
-      <main className="w-full min-h-screen pt-[9%] sm:pt-[1vh] from-white to-blue-50">
-        <div className="w-full relative h-[60vh] sm:h-[90vh] flex justify-center items-center">
+      <main className="w-full min-h-screen pt-0 from-white to-blue-50">
+        <div className="w-full relative h-[60vh] sm:h-[90vh] [@media(min-height:900px)]:h-[54vh] flex justify-center items-center">
           <img
             src="https://images.unsplash.com/photo-1524758631624-e2822e304c36"
             alt="Hero"

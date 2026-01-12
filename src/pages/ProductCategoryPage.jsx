@@ -35,9 +35,9 @@ export default function ProductCategoryPage() {
   // Buscar categoría según slug
   const category = productCategories.find((c) => c.slug === slug);
 
-  if (!category) {
-    return <p>No existe esta categoría.</p>;
-  }
+  // if (!category) {
+  //   return <p>No existe esta categoría.</p>;
+  // }
 
   // Filtrar productos por categoria_ID
   const filteredProducts = productsIndividual.productsIndividual
@@ -65,6 +65,17 @@ export default function ProductCategoryPage() {
     );
   };
 
+  const numero = "573117350824";
+  const message = `
+Hola Buen dia, estoy interesado en comprar este producto :
+*Producto:* ${productoSeleccionado ? productoSeleccionado.nombre : ""}
+*Cantidad:* ${cantidad}
+*Ver producto:* ${window.location.href}
+*Imagen del producto:* ${
+    productoSeleccionado ? productoSeleccionado.imagenes[0] : ""
+  }
+Quedo atento a disponibilidad, precio final y métodos de pago .`;
+
   return (
     <div className="bg-[white] w-full min-h-[100dvh] grid grid-rows-[1fr_auto] ">
       {filteredProducts.length === 0 && (
@@ -85,7 +96,7 @@ export default function ProductCategoryPage() {
 
       <main className="flex justify-center px-6 py-10 bg-white">
         <div className="w-full max-w-7xl">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 pt-[8vh] md:pt-[10vh] ">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 pt-0 ">
             {filteredProducts.map((p) => (
               <div
                 key={p.producto_ID}
@@ -334,12 +345,11 @@ export default function ProductCategoryPage() {
                         className={
                           leerMasDescripcion
                             ? "text-gray-700 leading-relaxed"
-                            : "text-gray-700 leading-relaxed line-clamp-3"
+                            : "text-gray-700 leading-relaxed line-clamp-2"
                         }
                       >
                         {productoSeleccionado.descripcion}
                       </p>
-
                       <span
                         onClick={() =>
                           setLeerMasDescripcion(!leerMasDescripcion)
@@ -351,12 +361,16 @@ export default function ProductCategoryPage() {
                     </div>
 
                     <div className="flex gap-4 mt-6 whitespace-nowrap">
-                      <button
+                      <a
+                        href={`https://wa.me/${numero}?text=${encodeURIComponent(
+                          message
+                        )}`}
+                        target="_blank"
                         style={{ background: "blue" }}
                         className="text-white px-6 py-3 rounded-lg shadow"
                       >
                         Comprar
-                      </button>
+                      </a>
                       {/* <button
                         style={{ background: "white", borderColor: "blue" }}
                         className="px-6 py-3 text-[blue] rounded-lg"

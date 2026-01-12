@@ -1,131 +1,209 @@
+import { IoArrowBack } from "react-icons/io5";
+import { FaWhatsapp, FaPhoneAlt, FaCheckCircle } from "react-icons/fa";
 import Footer from "./footer";
 
 export default function PopUpService({
   setServicioSeleccionado,
   servicioSeleccionado,
 }) {
+  if (!servicioSeleccionado) return null;
 
-  const numeroWhatsapp = "573117350824";
-  const mensajeWhatsapp = "¡Hola! Estoy interesado en tu servicio.";
+  const telefono = "573117350824";
+  const mensajeWhatsapp = `Hola, estoy interesado en el servicio de ${servicioSeleccionado.categoria_nombre}`;
 
   return (
-    <div className="font-sans overflow-y-auto">
-      <div className="overflow-y-auto h-screen">
-        {/*Hero */}
-        <div className="h-screen relative">
-          {/* Fondo */}
-          <div
-            className="absolute inset-0 bg-gray-200 bg-cover bg-center"
-            style={{
-              backgroundImage: `url(${servicioSeleccionado.video_principal})`,
-            }}
-          ></div>
+    <div className="fixed inset-0 z-50 bg-neutral-950 text-white font-sans overflow-y-auto">
+      {/* hero  */}
+      <section className="relative min-h-screen flex items-center">
+        <img
+          src={servicioSeleccionado.video_principal}
+          alt="Servicio"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
 
+        <div className="absolute inset-0 bg-gradient-to-tr from-black via-black/80 to-black/60" />
 
-          <div className="absolute inset-0 bg-gray-900/90 bg-opacity-50 flex flex-col justify-center items-center text-center px-4">
-            {/* boton de cerrar */}
-            <button
-              onClick={() => setServicioSeleccionado(null)}
-              className="fixed top-5 right-5 text-amber-600 bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded-full font-bold"
-            >
-              X
-            </button>
+        {/* btn volver  */}
+        <button
+          onClick={() => setServicioSeleccionado(null)}
+          className="fixed top-6 left-6 z-50 flex items-center gap-2 px-5 py-2 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 hover:bg-white/20 transition"
+        >
+          <IoArrowBack size={18} />
+          Volver
+        </button>
 
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
+        <div className="relative z-10 max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+          {/* texto principal  */}
+          <div>
+            <span className="inline-block mb-4 px-4 py-1 rounded-full text-sm font-semibold tracking-wide bg-amber-400/10 text-amber-400">
               {servicioSeleccionado.categoria_nombre}
+            </span>
+
+            <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-4">
+              {servicioSeleccionado.nombre_empresa}
             </h1>
-            <h3 className="text-xl md:text-2xl font-bold text-white mb-4">
-              ¡Servicio Premium para Ti!
-            </h3>
-            <p className="text-lg md:text-2xl text-white mb-8 max-w-2xl">
-              {" "}
-              {servicioSeleccionado.descripcion_nombre}{" "}
+
+            <p className="text-xl md:text-2xl font-semibold text-amber-400 mb-4">
+              Soluciones profesionales cuando más las necesitas
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+
+            <p className="text-lg text-gray-300 mb-8 max-w-xl">
+              Atención inmediata, resultados visibles y un servicio en el que
+              puedes confiar.
+              {/* {servicioSeleccionado.descripcion_nombre} */}
+            </p>
+
+            <div className="flex flex-wrap gap-4">
               <a
-                href={`tel:+57${numeroWhatsapp}`}
-                style={{ color: "orange" }}
-                className="bg-white text-amber-600 font-semibold px-6 py-3 rounded-lg shadow-lg hover:bg-gray-100 transition"
+                href={`tel:+${telefono}`}
+                style={{ color: "black" }}
+                className="px-7 py-4 rounded-xl bg-white font-bold hover:scale-105 transition flex items-center gap-2"
               >
-                Llamar Ahora
+                <FaPhoneAlt />
+                Llamar ahora
               </a>
+
               <a
-                href={`https://wa.me/${numeroWhatsapp}?text=${encodeURIComponent(
+                href={`https://wa.me/${telefono}?text=${encodeURIComponent(
                   mensajeWhatsapp
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-green-500 text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:bg-green-600 transition"
+                className="px-7 py-4 rounded-xl bg-green-500 font-extrabold hover:scale-105 transition flex items-center gap-2"
               >
-                WhatsApp
+                <FaWhatsapp />
+                Hablar ahora por WhatsApp
               </a>
             </div>
           </div>
-        </div>
 
-        {/* beneficios */}
-        <section className="py-20 px-4 bg-white text-center">
-          <h2 className="text-3xl font-bold mb-5">¿Por qué elegirnos?</h2>
-          <p className="text-lg md:text-2xl text-gray-800 mb-8">
-            Ofrecemos soluciones rápidas y efectivas. Contáctanos ahora y mejora
-            tu experiencia.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <div className="p-6 border rounded-lg shadow hover:shadow-lg transition">
-              <h3 className="text-xl font-semibold mb-2">Rápido y Eficiente</h3>
-              <p>
-                Atendemos tus necesidades en tiempo récord con calidad
-                garantizada.
-              </p>
-            </div>
-            <div className="p-6 border rounded-lg shadow hover:shadow-lg transition">
-              <h3 className="text-xl font-semibold mb-2">Soporte 24/7</h3>
-              <p>Estamos disponibles siempre que nos necesites, sin excusas.</p>
-            </div>
-            <div className="p-6 border rounded-lg shadow hover:shadow-lg transition">
-              <h3 className="text-xl font-semibold mb-2">
-                Profesionales Expertos
+          {/* generar confianza  */}
+          <div className="hidden md:block">
+            <div className="p-8 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl">
+              <h3 className="text-xl font-bold mb-4">
+                ¿Por qué confiar en este servicio?
               </h3>
-              <p>
-                Nuestro equipo cuenta con experiencia y dedicación para tu
-                tranquilidad.
-              </p>
+              <ul className="space-y-3 text-gray-300">
+                <li className="flex items-center gap-2">
+                  <FaCheckCircle className="text-amber-400" />
+                  Atención inmediata
+                </li>
+                <li className="flex items-center gap-2">
+                  <FaCheckCircle className="text-amber-400" />
+                  Resultados visibles
+                </li>
+                <li className="flex items-center gap-2">
+                  <FaCheckCircle className="text-amber-400" />
+                  Servicio confiable
+                </li>
+              </ul>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* llamada a la acción final */}
-        <section className="py-20 bg-gray-100 text-gray-800 text-center px-4">
-          <h2 className="text-3xl font-bold mb-6">
-            ¿Listo para mejorar tu experiencia?
-          </h2>
-          <p className="mb-8">
-            Contáctanos ahora y obtén atención personalizada inmediata.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <a
-              href={`tel:+57${numeroWhatsapp}`}
-              style={{ color: "orange" }}
-              className="bg-white text-amber-600 font-semibold px-6 py-3 rounded-lg shadow-lg hover:bg-gray-100 transition"
-            >
-              Llamar Ahora
-            </a>
-            <a
-              href={`https://wa.me/${numeroWhatsapp}?text=${encodeURIComponent(
-                mensajeWhatsapp
-              )}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-green-500 text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:bg-green-600 transition"
-            >
-              WhatsApp
-            </a>
-          </div>
-        </section>
+      {/* dolor  */}
+      <section className="py-24 bg-neutral-950 text-center px-6">
+        <h2 className="text-4xl font-extrabold mb-6">
+          ¿Cansado de perder tiempo con servicios que no cumplen?
+        </h2>
+        <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+          Aquí encuentras atención real, resultados claros y un servicio pensado
+          para ti.
+        </p>
+      </section>
 
-        {/* Footer */}
-        <Footer />
-      </div>
+      {/* beneficios  */}
+      <section className="py-24 bg-neutral-950 px-6">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+          {[
+            {
+              title: "Atención inmediata",
+              text: "Te respondemos rápido y actuamos sin demoras.",
+            },
+            {
+              title: "Resultados visibles",
+              text: "Notas la diferencia desde el primer servicio.",
+            },
+            {
+              title: "Servicio confiable",
+              text: "Cumplimos lo que prometemos, sin excusas.",
+            },
+          ].map((item, i) => (
+            <div
+              key={i}
+              className="p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-amber-400/40 transition"
+            >
+              <h3 className="text-xl font-bold mb-3 text-amber-400">
+                {item.title}
+              </h3>
+              <p className="text-gray-400">{item.text}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* proceso  */}
+      <section className="py-24 bg-gradient-to-b from-neutral-900 to-neutral-950 px-6">
+        <h2 className="text-4xl font-extrabold text-center mb-14">
+          ¿Cómo funciona?
+        </h2>
+
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-6">
+          {[
+            "Nos escribes o llamas",
+            "Evaluamos tu necesidad",
+            "Realizamos el servicio",
+            "Disfrutas el resultado",
+          ].map((step, i) => (
+            <div
+              key={i}
+              className="relative p-6 rounded-2xl bg-white/5 border border-white/10 text-center"
+            >
+              <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-amber-400 text-black w-10 h-10 rounded-full flex items-center justify-center font-extrabold">
+                {i + 1}
+              </span>
+              <p className="mt-6 font-semibold">{step}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* final  */}
+      <section className="py-28 bg-gradient-to-r from-amber-400 to-orange-500 text-black text-center px-6">
+        <h2 className="text-4xl md:text-5xl font-extrabold mb-6">
+          Agenda hoy y recibe atención inmediata
+        </h2>
+
+        <p className="text-lg mb-10 font-medium">
+          No lo dejes para después. Escríbenos ahora.
+        </p>
+
+        <div className="flex justify-center gap-4 flex-wrap">
+          <a
+            href={`tel:+${telefono}`}
+            style={{ color: "white" }}
+            className="px-7 py-4 rounded-xl bg-black font-bold hover:scale-105 transition flex items-center gap-2"
+          >
+            <FaPhoneAlt />
+            Llamar ahora
+          </a>
+
+          <a
+            href={`https://wa.me/${telefono}?text=${encodeURIComponent(
+              mensajeWhatsapp
+            )}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-7 py-4 rounded-xl bg-green-500 font-extrabold hover:scale-105 transition flex items-center gap-2"
+          >
+            <FaWhatsapp />
+            WhatsApp
+          </a>
+        </div>
+      </section>
+
+      <Footer />
     </div>
   );
 }
