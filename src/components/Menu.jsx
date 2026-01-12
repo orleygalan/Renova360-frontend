@@ -174,7 +174,7 @@ export default function Menu() {
             onMouseEnter={() => setOpenProducts(true)}
             onMouseLeave={() => setOpenProducts(false)}
           >
-            <button className="flex items-center gap-1">
+            <button style={{background: 'transparent'}} className="flex items-center gap-1">
               Productos {openProducts ? <SlArrowUp /> : <SlArrowDown />}
             </button>
 
@@ -194,7 +194,7 @@ export default function Menu() {
             onMouseEnter={() => setOpenServices(true)}
             onMouseLeave={() => setOpenServices(false)}
           >
-            <button className="flex items-center gap-1">
+            <button style={{background: 'transparent'}} className="flex items-center gap-1">
               Servicios {openServices ? <SlArrowUp /> : <SlArrowDown />}
             </button>
 
@@ -226,7 +226,7 @@ export default function Menu() {
               onMouseLeave={() => setOpenCuenta(false)}
             >
               <button
-                style={{ padding: "0" }}
+                style={{ background: 'transparent' }}
                 className="flex items-center gap-1"
               >
                 Cuenta {openCuenta ? <SlArrowUp /> : <SlArrowDown />}
